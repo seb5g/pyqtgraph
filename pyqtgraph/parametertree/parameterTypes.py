@@ -445,6 +445,8 @@ class GroupParameterItem(ParameterItem):
         
         if 'addList' in opts:
             self.updateAddList()
+        elif 'visible' in opts:
+            self.setHidden(not opts['visible'])
                 
     def updateAddList(self):
         self.addWidget.blockSignals(True)
