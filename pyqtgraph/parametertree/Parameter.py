@@ -264,6 +264,20 @@ class Parameter(QtCore.QObject):
                 return None
         return path
 
+    def getParamPath(self):
+        """
+        Get the sequence of param names from upper parent down to self
+        Returns
+        -------
+        list: list of strings (param names) to be used in the child method of the upper parent to return self
+        """
+        param = self
+        path = [param.name()]
+        while param.parent() is not None:
+            path.append(param.parent().name())
+            param = param.parent()
+        return path[::-1]
+
     def setValue(self, value, blockSignal=None):
         """
         Set the value of this Parameter; return the actual value that was set.
