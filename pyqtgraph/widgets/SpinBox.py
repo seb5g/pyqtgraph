@@ -192,6 +192,17 @@ class SpinBox(QtGui.QAbstractSpinBox):
                 self.opts[k] = asUnicode(v)
             elif k == 'regex' and isinstance(v, basestring):
                 self.opts[k] = re.compile(v)
+            elif k == 'visible':
+                self.setVisible(opts[k])
+            elif k == 'readonly':
+                self.setReadOnly(opts[k])
+            elif k == 'enabled':
+                self.setEnabled(opts[k])
+            elif k == 'format':
+                self.opts[k] = opts[k]
+            elif 'tip' in k:
+                self.opts[k] = opts[k]
+                self.setToolTip(opts[k])
             elif k in self.opts:
                 self.opts[k] = v
             else:
