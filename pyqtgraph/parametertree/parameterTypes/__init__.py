@@ -14,7 +14,7 @@ from .colormap import ColorMapParameter, ColorMapParameterItem
 from .file import FileParameter, FileParameterItem
 from .font import FontParameter, FontParameterItem
 from .list import ListParameter, ListParameterItem
-from .numeric import NumericParameterItem
+from .numeric import NumericParameter
 from .pen import PenParameter, PenParameterItem
 from .progress import ProgressBarParameter, ProgressBarParameterItem
 from .qtenum import QtEnumParameter
@@ -23,8 +23,8 @@ from .str import StrParameterItem
 from .text import TextParameter, TextParameterItem
 
 registerParameterItemType('bool',  BoolParameterItem,    SimpleParameter, override=True)
-registerParameterItemType('float', NumericParameterItem, SimpleParameter, override=True)
-registerParameterItemType('int',   NumericParameterItem, SimpleParameter, override=True)
+registerParameterType('float', NumericParameter, override=True)
+registerParameterType('int',   NumericParameter, override=True)
 registerParameterItemType('str',   StrParameterItem,     SimpleParameter, override=True)
 
 registerParameterType('group', GroupParameter, override=True)
