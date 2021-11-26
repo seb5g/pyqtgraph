@@ -66,10 +66,10 @@ class NumericParameter(SimpleParameter):
         super().__init__(**opts)
 
     def setLimits(self, limits):
-        Parameter.setLimits(self, limits)
-        # 'value in limits' expression will break when reverse contains numpy array
         curVal = self.value()
         if curVal > limits[1]:
             self.setValue(limits[1])
         elif curVal < limits[0]:
             self.setValue(limits[0])
+        super().setLimits(self, limits)
+        return limits
